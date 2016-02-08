@@ -15,21 +15,16 @@ $page = 'homepage';
 
 //print_r($_SERVER) prints the contents in the SERVER superglobal; 
 
-echo $_SERVER['REQUEST_METHOD'];
-
+echo $_SERVER['REQUEST_METHOD'] . '</br>';
+ 
   
 
 if(isset($_GET['page'])) {
 
-  //this is an example of how to access an element in an array $_GET['page']
-
   $page = $_GET['page'];
-
 }
 
 $obj = new $page;
-
-
 
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
 
@@ -77,11 +72,11 @@ class contact {
 
        <p>Your city: <input type="text" name="city" /></p>
 
-   <p><input type="submit" /></p>
+       <p><input type="submit" /></p>
 
-          <input type="reset" />
+       <input type="reset" />
 
-   </form>';
+       </form>';
 
   }
 
@@ -89,13 +84,10 @@ class contact {
 
   public function post() {
 
-    echo 'Great job';
-
-    print_r($_POST);
-
-
-
+    foreach ($_POST as $key => $value){ #example for loop using foreach to output contents of $_POST
+        echo $key . "=>" . $value . '</br>';
+    }
   }
-
+#end of index.php file
 }
 ?>
